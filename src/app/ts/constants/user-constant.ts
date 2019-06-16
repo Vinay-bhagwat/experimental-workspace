@@ -1,0 +1,5 @@
+
+export const userConstants = {
+    LOGIN_ACTION: "LOGIN_ACTION",
+    REGISTRATION_ACTION:"REGISTRATION_ACTION"
+  };

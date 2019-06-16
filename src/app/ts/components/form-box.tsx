@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
 import { Formik } from "formik";
+import { rootStore } from "../GuestExperience";
 
 export interface IFormState {
   validated: boolean;
@@ -54,7 +55,7 @@ export class FormBox extends React.PureComponent<IFormProps, IFormState> {
     return (
       <Formik
         validationSchema={this.props.schema}
-        onSubmit={this.props.formSubmitLink}
+        onSubmit={data=>rootStore.dispatch(this.props.formSubmitLink(data))}
         initialValues={{}}
       >
         {({ handleSubmit, handleChange, values, errors }) => (

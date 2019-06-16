@@ -1,7 +1,7 @@
 import React from "react";
 import * as yup from 'yup';
 import { FormBox, IFormProps } from "./form-box";
-import {  postRegisterInfo } from '../services/utils.helper';
+import {userActions} from '../actions/user-actions'
 
 interface IRegisterProps {}
 
@@ -14,7 +14,7 @@ export const Register: React.SFC<IRegisterProps> = () => {
       });
   const registerForm: IFormProps = {
       schema:registerSchema,
-      formSubmitLink:postRegisterInfo,
+      formSubmitLink:userActions.userRegistration,
     formButtonText: "Register",
     inputFormList: [
       {

@@ -1,8 +1,7 @@
 import React from "react";
 import { FormBox, IFormProps } from "./form-box";
 import * as yup from "yup";
-import { postLoginInfo } from "../services/utils.helper";
-
+import {userActions} from '../actions/user-actions'
 interface ILoginProps {}
 
 export const Login: React.SFC<ILoginProps> = () => {
@@ -11,7 +10,7 @@ export const Login: React.SFC<ILoginProps> = () => {
     password: yup.string().required()
   });
   const loginForm: IFormProps = {
-    formSubmitLink: postLoginInfo,
+    formSubmitLink: userActions.userLogin,
     formButtonText: "Login",
     schema: loginSchema,
     inputFormList: [
