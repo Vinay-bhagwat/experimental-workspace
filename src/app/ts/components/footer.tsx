@@ -19,6 +19,6 @@ const getItems = (): React.ReactNode => {
   ));
 };
 const footerItem: React.CSSProperties = {
-  marginLeft: 5,
-  marginRight: 5
+  marginLeft: 2,
+  marginRight: 2
 };
