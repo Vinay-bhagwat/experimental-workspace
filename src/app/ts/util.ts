@@ -1,3 +1,5 @@
+import { async } from "q";
+
 const axios = require("axios");
 
 const instance = axios.create({
@@ -16,19 +18,13 @@ const GET_REQUEST_CALL = (url: string, data: any) => {
     });
 };
 
-const POST_REQUEST_CALL = (url: string, data: any) => {
-  return instance({
+async function POST_REQUEST_CALL(url: string, data: any) {
+  return await instance({
     method: "post",
     url: url,
     data: data
-  })
-    .then(function(response: any) {
-      return response;
-    })
-    .catch(function(error: any) {
-      return error;
-    });
-};
+  });
+}
 
 export const AxiosHandler = {
   postRequestCall: POST_REQUEST_CALL,

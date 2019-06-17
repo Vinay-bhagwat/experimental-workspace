@@ -1,5 +1,5 @@
 import { userConstants } from "../constants/user-constant";
-import { userService } from "../services/utils.helper";
+import { userService } from "../services/user-service";
 
 export const userActions = {
   userLogin,
@@ -8,7 +8,9 @@ export const userActions = {
 
 function userLogin(userData: any) {
   return (dispatch: any) => {
-    return dispatch(success(userService.postLoginInfo(userData)));
+    userService.postLoginInfo(userData).then(response => {
+      return dispatch(success(response));
+    });
   };
 
   function success(userInfo: any) {
@@ -18,7 +20,9 @@ function userLogin(userData: any) {
 
 function userRegistration(userData: any) {
   return (dispatch: any) => {
-    return dispatch(success(userService.postRegisterInfo(userData)));
+    userService.postLoginInfo(userData).then(response => {
+      return dispatch(success(response));
+    });
   };
 
   function success(userInfo: any) {

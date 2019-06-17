@@ -1,8 +1,12 @@
 import { userConstants } from "../constants/user-constant";
 
-let user = localStorage.getItem("user");
-const initialState = {
-  user: { login: "", avatar_url: "" }
+export interface IUserInfo {
+  userName: string;
+  isLoggedIn: boolean;
+}
+let initialState: IUserInfo = {
+  userName: "",
+  isLoggedIn: false
 };
 
 const UserInfoReducer = (state = initialState, action: any) => {
