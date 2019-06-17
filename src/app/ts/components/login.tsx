@@ -1,10 +1,13 @@
 import React from "react";
 import { FormBox, IFormProps } from "./form-box";
 import * as yup from "yup";
-import {userActions} from '../actions/user-actions'
-interface ILoginProps {}
+import { userActions } from "../actions/user-actions";
+import { connect } from "react-redux";
+import { SpinnerComponent } from "./spinner";
 
-export const Login: React.SFC<ILoginProps> = () => {
+const Login: React.SFC<any> = props => {
+  console.log(props);
+
   const loginSchema = yup.object({
     email: yup.string().required(),
     password: yup.string().required()
@@ -34,5 +37,18 @@ export const Login: React.SFC<ILoginProps> = () => {
     ]
   };
 
-  return <FormBox {...loginForm} />;
+  return (
+    <>
+     {props.isLoading&& <SpinnerComponent />}
+      <FormBox {...loginForm} />
+    </>
+  );
 };
+
+function mapStateToProps(state: any) {
+  return {
+    ...state.HelperInfoReducer
+  };
+}
+
+export default connect(mapStateToProps)(Login);

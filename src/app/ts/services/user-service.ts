@@ -1,9 +1,7 @@
 import { AxiosHandler } from "../util";
 
 async function postLoginInfo(data: any) {
-  const response = await AxiosHandler.postRequestCall("login", data);
-  console.log(response);
-  
+  const response = await AxiosHandler.getRequestCall("people/");
   return response.data
 }
 

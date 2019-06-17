@@ -4,6 +4,7 @@ export interface IUserInfo {
   userName: string;
   isLoggedIn: boolean;
   token?: string;
+  isErrorOccured?: boolean;
 }
 let initialState: IUserInfo = {
   userName: "",
@@ -17,8 +18,6 @@ const UserInfoReducer = (state = initialState, action: any) => {
       return userInfo;
     case userConstants.REGISTRATION_ACTION:
       return userInfo;
-    case "TEST_ACTION":
-      return {};
     default:
       return state;
   }

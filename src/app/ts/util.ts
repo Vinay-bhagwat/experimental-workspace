@@ -1,21 +1,20 @@
-import { async } from "q";
 
-const axios = require("axios");
+import axios, { AxiosInstance } from "axios";
 
-const instance = axios.create({
-  baseURL: "https://reqres.in/api/",
+const instance:AxiosInstance = axios.create({
+  baseURL: "https://swapi.co/api/",
   timeout: 10000,
-  headers: { "X-Custom-Header": "foobar" }
+  headers: { "content-type": "application/json"  }
 });
 
-const GET_REQUEST_CALL = (url: string, data: any) => {
-  return instance({ method: "get", url: url })
-    .then(function(response: any) {
-      return response;
-    })
-    .catch(function(error: any) {
-      return error;
-    });
+const GET_REQUEST_CALL = async (url: string) => {
+  try {
+    const response = await instance({ method: "get", url: url });
+    return response;
+  }
+  catch (error) {
+    return error;
+  }
 };
 
 async function POST_REQUEST_CALL(url: string, data: any) {

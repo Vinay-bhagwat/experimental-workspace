@@ -1,0 +1,4 @@
+export const helperConstants = {
+  ERROR_ACTION: "ERROR_ACTION",
+  PAGE_LOADING_ACTION: "PAGE_LOADING_ACTION"
+};

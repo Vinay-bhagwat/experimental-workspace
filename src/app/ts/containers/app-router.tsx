@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Route } from "react-router-dom";
 import { HeaderComponent } from "../components/header";
-import { Login } from "../components/login";
+import Login from "../components/login";
 import { Register } from "../components/register";
 import { FooterComponent } from "../components/footer";
 import { Card } from "react-bootstrap";
