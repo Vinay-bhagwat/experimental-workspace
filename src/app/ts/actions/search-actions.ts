@@ -14,10 +14,10 @@ function getSearchList(search: string) {
     );
 
     searchService.getSearchQueryList(search).then(response => {
-      console.log(response.results);
 
-      if (response.results) {
-        return dispatch(success({searchList:response.results}));
+      if (response.text_out) {
+        const stringArray=response.text_out.split(' ')
+        return dispatch(success({searchList:stringArray}));
       }
       return dispatch(
         failure({

@@ -2,14 +2,14 @@
 import axios, { AxiosInstance } from "axios";
 
 const instance:AxiosInstance = axios.create({
-  baseURL: "https://swapi.co/api/",
+  baseURL: "http://www.randomtext.me/api/",
   timeout: 10000,
   headers: { "content-type": "application/json"  }
 });
 
 const GET_REQUEST_CALL = async (url: string) => {
   try {
-    const response = await instance({ method: "get", url: url });
+    const response = await instance({ method: "get" });
     return response;
   }
   catch (error) {

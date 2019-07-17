@@ -23,20 +23,14 @@ class SearchBar extends React.PureComponent<any, ISearchBarState> {
       this.filterOut
     );
   };
-  componentDidUpdate() {}
   filterOut = () => {
     const filterList = this.props.searchList.filter(
-      (planet: any) =>
-        planet.name.toLowerCase().indexOf(this.state.searchQuery) === 0
+      (text: any) => text.indexOf(this.state.searchQuery) === 0
     );
     this.setState({
       searchQueryList: filterList
     });
   };
-
-  componentDidMount() {
-    this.props.dispatch(searchActions.getSearchList("planets"));
-  }
 
   getRandomColor = () => {
     var letters = "0123456789ABCDEF";
@@ -53,7 +47,7 @@ class SearchBar extends React.PureComponent<any, ISearchBarState> {
         parseInt(element.population) > 0
           ? parseInt(element.population)
           : 100000;
-      const width = population / 12345;
+      const width = "100%";
 
       return (
         <ListGroup.Item
@@ -64,22 +58,32 @@ class SearchBar extends React.PureComponent<any, ISearchBarState> {
           key={element.created}
         >
           <ListGroup>
-            <ListGroup.Item>Planet Name :{element.name}</ListGroup.Item>
+            <ListGroup.Item>{element}</ListGroup.Item>
+
+            {/* <ListGroup.Item>Planet Name :{element.name}</ListGroup.Item>
             <ListGroup.Item>
               Planet Population :{element.population}
             </ListGroup.Item>
             <ListGroup.Item>Planet climate :{element.climate}</ListGroup.Item>
             <ListGroup.Item>Planet diameter :{element.diameter}</ListGroup.Item>
             <ListGroup.Item>Planet gravity :{element.gravity}</ListGroup.Item>
+          */}
           </ListGroup>
         </ListGroup.Item>
       );
     });
   };
 
+  public renderTextBox = () => {
+    if (this.props.searchList) {
+      return <Card>{this.props.searchList.join(" ")}</Card>;
+    }
+    return <Card>Empty Data</Card>;
+  };
   render() {
     return (
       <Card>
+        <ListGroup>{this.renderTextBox()}</ListGroup>
         <Form inline>
           <FormControl
             onChange={this.handleInputChange}

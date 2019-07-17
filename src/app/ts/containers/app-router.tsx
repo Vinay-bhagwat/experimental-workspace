@@ -7,6 +7,7 @@ import { FooterComponent } from "../components/footer";
 import { Card } from "react-bootstrap";
 import WelcomePage from "../components/welcome-page";
 import history from "../history";
+import DemoComponent from "../components/demo";
 
 function AppRouter() {
   return (
@@ -16,10 +17,10 @@ function AppRouter() {
           <HeaderComponent title="Demo App" />
         </Card.Header>
         <Card.Body style={bodyView}>
-          <Route exact path="/" component={Login} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/welcome" component={WelcomePage} />
+          <Route exact path="/" component={DemoComponent} />
+          {/* <Route path="/login" component={Login} /> */}
+          {/* <Route path="/register" component={Register} /> */}
+          {/* <Route path="/welcome" component={WelcomePage} /> */}
         </Card.Body>
         <Card.Footer style={footerView}>
           <FooterComponent />

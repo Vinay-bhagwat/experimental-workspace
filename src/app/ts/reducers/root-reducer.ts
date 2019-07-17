@@ -4,8 +4,8 @@ import HelperInfoReducer from "./helper-reducer";
 import SearchInfoReducer from "./search-reducer";
 
 const AllReducers = combineReducers({
-  UserInfoReducer: UserInfoReducer,
-  HelperInfoReducer: HelperInfoReducer,
+  // UserInfoReducer: UserInfoReducer,
+  // HelperInfoReducer: HelperInfoReducer,
   SearchInfoReducer: SearchInfoReducer
 });
 
